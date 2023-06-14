@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 09:46:25 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/14 12:05:14 by omoreno-         ###   ########.fr       */
+/*   Created: 2023/06/14 09:48:12 by omoreno-          #+#    #+#             */
+/*   Updated: 2023/06/14 13:41:03 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include <iostream>
 #include "Zombie.hpp"
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
-
-int	main(void)
+Zombie::Zombie()
 {
-	Zombie* zombiePtr = newZombie("Oscarrr");
-	zombiePtr->announce();
-	randomChump("Oshkaaa");
-	delete zombiePtr;
-	return (0);
+}
+
+Zombie::Zombie(std::string n)
+{
+	name = n;
+}
+
+Zombie::~Zombie()
+{
+	std::cout << name << " has being destroyed." << std::endl;
+}
+
+void Zombie::setName(std::string n)
+{
+	name = n;
+}
+
+void Zombie::announce( void )
+{
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
