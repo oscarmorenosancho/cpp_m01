@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 09:50:31 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/14 14:56:42 by omoreno-         ###   ########.fr       */
+/*   Created: 2023/06/14 15:14:12 by omoreno-          #+#    #+#             */
+/*   Updated: 2023/06/14 17:54:57 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ZOMBIE_HPP__
-#define __ZOMBIE_HPP__
+#include "Weapon.hpp"
 
-# include <string>
-# include <iostream>
-
-class Zombie
+Weapon::Weapon(const Weapon& w)
 {
-private:
-	std::string	name;
-public:
-	Zombie();
-	~Zombie();
-	Zombie(std::string n);
-	void setName(std::string n);
-	void announce( void );
-};
+	setType(w.type);
+}
 
-#endif //__ZOMBIE_HPP__
+Weapon::Weapon(const std::string t)
+{
+	setType(t);
+}
+
+Weapon::~Weapon()
+{
+}
+
+Weapon& Weapon::operator=(Weapon& b)
+{
+	return (b);
+}
+
+const	std::string& Weapon::getType()
+{
+	return (type);
+}
+
+void	Weapon::setType(std::string t)
+{
+	type = t;
+}

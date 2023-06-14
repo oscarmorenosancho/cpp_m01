@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 09:48:12 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/14 14:56:37 by omoreno-         ###   ########.fr       */
+/*   Created: 2023/06/14 15:14:34 by omoreno-          #+#    #+#             */
+/*   Updated: 2023/06/14 17:49:55 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-Zombie::Zombie()
+int main()
 {
-}
+	{
+		Weapon club = Weapon("crude spiked club");
 
-Zombie::Zombie(std::string n)
-{
-	name = n;
-}
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
 
-Zombie::~Zombie()
-{
-	std::cout << name << " has being destroyed." << std::endl;
-}
-
-void Zombie::setName(std::string n)
-{
-	name = n;
-}
-
-void Zombie::announce( void )
-{
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }

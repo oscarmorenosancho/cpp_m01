@@ -6,21 +6,14 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/14 09:42:47 by omoreno-          #+#    #+#              #
-#    Updated: 2023/06/14 14:52:31 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/06/14 14:54:45 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= Moarbrainz!
-
-CLASSSRC:= 	Zombie.cpp
-
-SRC:= 		zombieHorde.cpp
+NAME:= HITHISISBRAIN
 
 MAINSRC :=	main.cpp
 
-CLASSOBJ := $(CLASSSRC:.cpp=.o)
-HEADER := 	$(CLASSSRC:.cpp=.hpp)
-OBJ := 		$(SRC:.cpp=.o)
 MAINOBJ := 	$(MAINSRC:.cpp=.o)
 
 CC	:= 	@c++
@@ -29,11 +22,11 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 all : $(NAME)
 
-%.o : %.cpp ${HEADER} Makefile
+%.o : %.cpp Makefile
 	@echo "Compiling" $@
 	${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME) : ${CLASSOBJ} ${OBJ} ${MAINOBJ} ${HEADER} Makefile
+$(NAME) : ${MAINOBJ} Makefile
 	@echo "Linking" $@
 	${CC} ${CFLAGS} ${CLASSOBJ} ${MAINOBJ} ${OBJ} -o $@
 

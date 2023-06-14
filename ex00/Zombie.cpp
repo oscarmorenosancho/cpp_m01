@@ -6,11 +6,10 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 09:48:12 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/14 10:10:02 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:55:52 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream>
 #include "Zombie.hpp"
 
 Zombie::Zombie(std::string name)

@@ -6,21 +6,20 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/14 09:42:47 by omoreno-          #+#    #+#              #
-#    Updated: 2023/06/14 14:52:31 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/06/14 15:13:24 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME:= Moarbrainz!
+NAME:= UnnecessaryViolence
 
-CLASSSRC:= 	Zombie.cpp
-
-SRC:= 		zombieHorde.cpp
+CLASSSRC:= 	Weapon.cpp \
+			HumanA.cpp \
+			HumanB.cpp
 
 MAINSRC :=	main.cpp
 
 CLASSOBJ := $(CLASSSRC:.cpp=.o)
 HEADER := 	$(CLASSSRC:.cpp=.hpp)
-OBJ := 		$(SRC:.cpp=.o)
 MAINOBJ := 	$(MAINSRC:.cpp=.o)
 
 CC	:= 	@c++
@@ -33,13 +32,12 @@ all : $(NAME)
 	@echo "Compiling" $@
 	${CC} ${CFLAGS} -c $< -o $@
 
-$(NAME) : ${CLASSOBJ} ${OBJ} ${MAINOBJ} ${HEADER} Makefile
+$(NAME) : ${CLASSOBJ} ${MAINOBJ} ${HEADER} Makefile
 	@echo "Linking" $@
-	${CC} ${CFLAGS} ${CLASSOBJ} ${MAINOBJ} ${OBJ} -o $@
+	${CC} ${CFLAGS} ${CLASSOBJ} ${MAINOBJ} -o $@
 
 clean :
 	$(RM) $(CLASSOBJ)
-	$(RM) $(OBJ)
 	$(RM) $(MAINOBJ)
 	@echo "Cleaned objects"
 
