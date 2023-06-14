@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:14:21 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/14 17:49:04 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:03:21 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,12 @@ const Weapon&	HumanB::getWeapon()
 void	HumanB::attack()
 {
 	std::cout << name;
-	std::cout << " attacks with their ";
-	std::cout << weapon->getType();
+	if (weapon)
+	{
+		std::cout << " attacks with their ";
+		std::cout << weapon->getType();
+	}
+	else
+		std::cout << " attacks without weapon";
 	std::cout << std::endl;
 }
