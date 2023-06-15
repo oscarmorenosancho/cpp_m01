@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:11:04 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/15 13:21:07 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:14:24 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	FileReplace fr(argv[1], argv[2], argv[3]);
-	fr.execute();
-	return 0;
+	return (fr.execute());
 }

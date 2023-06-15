@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:20:25 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/15 17:06:02 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:21:36 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int FileReplace::readFile()
 		std::cerr << "Error" << std::endl;
 		std::cerr << "file: " << _filename << " could not be opened to read";
 		std::cerr << std::endl;
-		return (1);
+		return (2);
 	}
 	while (std::getline (myfile, line))
 		_content += line + "\n";
@@ -78,7 +78,7 @@ int	FileReplace::saveResult()
 		std::cerr << "Error" << std::endl;
 		std::cerr << "file: " << outputFilename << " could not be opened to write";
 		std::cerr << std::endl;
-		return (1);
+		return (3);
 	}	
 	myfile << _content;
 	myfile.close();
@@ -87,9 +87,11 @@ int	FileReplace::saveResult()
 
 int	FileReplace::execute()
 {
-	if (readFile())
-		return (1);
-	if (doReplacement())
-		return (1);
+	int result = readFile();
+	if (result)
+		return (result);
+	result = doReplacement();
+	if (result)
+		return (result);
 	return (saveResult());
 }
