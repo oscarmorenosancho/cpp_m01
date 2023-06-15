@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:20:25 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/15 13:22:53 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:06:02 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ int FileReplace::readFile()
 	std::ifstream myfile;
 	myfile.open (_filename, std::ios::in);
 	if (!myfile.is_open())
+	{
+		std::cerr << "Error" << std::endl;
+		std::cerr << "file: " << _filename << " could not be opened to read";
+		std::cerr << std::endl;
 		return (1);
+	}
 	while (std::getline (myfile, line))
 		_content += line + "\n";
 	myfile.close();
@@ -41,16 +46,40 @@ int FileReplace::readFile()
 
 int FileReplace::doReplacement()
 {
+	size_t findLen = _find.length();
+	size_t contentLen = _content.length();
+	size_t i;
+	std::string result("");
+	i = 0;
+	while (i < contentLen)
+	{
+		if (_content.substr(i, findLen) == _find)
+		{
+			result += _replace;
+			i+= findLen;
+		}
+		else
+		{
+			result += _content[i];
+			i++;
+		}
+	}
+	_content = result;
 	return (0);
 }
 
 int	FileReplace::saveResult()
 {
-	std::string outputFilename = _filename + ".output";
+	std::string outputFilename = _filename + ".replace";
 	std::ofstream myfile;
 	myfile.open (outputFilename, std::ios::out | std::ios::trunc);
 	if (!myfile.is_open())
+	{
+		std::cerr << "Error" << std::endl;
+		std::cerr << "file: " << outputFilename << " could not be opened to write";
+		std::cerr << std::endl;
 		return (1);
+	}	
 	myfile << _content;
 	myfile.close();
 	return (0);
