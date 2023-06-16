@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:22:47 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/06/16 10:31:54 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:56:46 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	Harl::debug( void )
 void	Harl::info( void )
 {
 	introduce();
-	std::cout << "I cannot believe adding extra bacon costs more money. "
-				"You didn’t put enough bacon in my burger! "
+	std::cout << "I cannot believe adding extra bacon costs more money.\n"
+				"You didn’t put enough bacon in my burger!\n"
 				"If you did, I wouldn’t be asking for more!";
 	std::cout << std::endl;
 }
@@ -48,7 +48,7 @@ void	Harl::info( void )
 void	Harl::warning( void )
 {
 	introduce();
-	std::cout << "I think I deserve to have some extra bacon for free. "
+	std::cout << "I think I deserve to have some extra bacon for free. \n"
 					"I’ve been coming for years whereas you started "
 					"working here since last month.";
 	std::cout << std::endl;
@@ -71,7 +71,7 @@ void	Harl::unhandledLevel( void )
 
 void	Harl::introduce( void )
 {
-	std::cout << "Serial " << serialNb << " Harl says: ";
+	std::cout << "- Serial " << serialNb << " Harl says: " << std::endl;
 }
 
 void	Harl::debug( Harl* instance )
